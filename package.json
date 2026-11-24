@@ -9,19 +9,5 @@
   },
   "keywords": [],
   "author": "",
-<<<<<<< HEAD
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^18.0.10",
-    "express": "^5.3.0",
-    "jsonwebtoken": "^9.0.3",
-    "path": "^0.12.7",
-    "pg": "^8.23.1",
-    "pool": "^0.4.1"
-  }
-=======
   "license": "ISC"
->>>>>>> edc338c0c60e9584e391cf0c8abb6d92b2c501d8
 }
