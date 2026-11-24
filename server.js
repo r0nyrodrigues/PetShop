@@ -273,12 +273,10 @@ app.get("/api/pdf", autenticar, async (req, res) => {
             erro: "Erro de comunicacao com o python"
         });
     }
-});
- 
+});        
+ const PORT = process.env.PORT || 3000;
 criarBanco()
     .then(() => {
-        const PORT = process.env.PORT || 3000;
- 
         app.listen(PORT, "0.0.0.0", () => {
             console.log("Servidor rodando na porta " + PORT);
         });
