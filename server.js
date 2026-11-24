@@ -18,25 +18,17 @@ const ssl = process.env.DB_SSL_CA
         ca: process.env.DB_SSL_CA.replace(/\\n/g, "\n"),
         rejectUnauthorized: true
     }
-    : process.env.NODE_ENV === "production"
-        ? { rejectUnauthorized: false }
-        : false;
-
-const db = process.env.DATABASE_URL
-    ? new Pool({
-        connectionString: process.env.DATABASE_URL,
-        ssl: ssl,
-        max: 5
-    })
-    : new Pool({
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT || 5432),
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        ssl: ssl,
-        max: 5
-    });
+    : { rejectUnauthorized: true };
+ 
+const db = new Pool({
+    host: process.env.HOST,
+    port: Number(process.env.PORT),
+    user: process.env.USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    ssl: ssl,
+    max: 5
+});
  
 async function criarBanco() {
     await db.query(`
